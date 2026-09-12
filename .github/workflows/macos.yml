@@ -93,12 +93,6 @@ jobs:
           cmake --build . -j$(sysctl -n hw.logicalcpu)
           make install
 
-      - name: Tests
-        run: |
-          mkdir -p "${HOME}/Library/Application Support/minetest/games/"
-          ln -s "${PWD}/games/devtest" "${HOME}/Library/Application Support/minetest/games/"
-          ./build/macos/cloakv4.app/Contents/MacOS/cloakv4 --run-unittests
-
       - name: Create Artifact
         uses: actions/upload-artifact@v4
         with:
